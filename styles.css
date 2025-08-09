@@ -509,6 +509,15 @@ body {
     box-shadow: 0 10px 40px rgba(29, 161, 242, 0.8);
 }
 
+.social-btn.twitter-share {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
+}
+
+.social-btn.twitter-share:hover {
+    box-shadow: 0 10px 40px rgba(255, 0, 110, 0.8);
+}
+
 /* Particles */
 .particles {
     position: fixed;

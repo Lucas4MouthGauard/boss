@@ -463,13 +463,17 @@ const preloadResources = () => {
 // Initialize preloading
 preloadResources();
 
-// Twitter share functionality enhancement
+// Twitter functionality enhancement
 document.addEventListener('click', (e) => {
-    if (e.target.closest('.btn-twitter, .social-btn.twitter')) {
+    // Handle Twitter share buttons
+    if (e.target.closest('.social-btn.twitter-share')) {
         e.preventDefault();
         const url = encodeURIComponent(window.location.href);
-        const text = encodeURIComponent('Just discovered the ultimate GirlBoss energy! 💪🎮 #GirlBoss #PixelPower');
+        const text = encodeURIComponent('Just discovered the ultimate GirlBoss energy on @girlbossonsol! 💪🎮 #GirlBoss #PixelPower');
         const twitterUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
         window.open(twitterUrl, '_blank', 'width=600,height=400');
     }
+    
+    // Handle direct Twitter profile links (let them navigate normally)
+    // No need to intercept .btn-twitter or .social-btn.twitter as they go directly to the profile
 });
