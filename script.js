@@ -578,7 +578,7 @@ document.addEventListener('click', (e) => {
     if (e.target.closest('.social-btn.twitter-share')) {
         e.preventDefault();
         const url = encodeURIComponent(window.location.href);
-        const text = encodeURIComponent('Just discovered the ultimate GirlBoss energy on @girlbossonsol! 💪🎮 #GirlBoss #PixelPower');
+        const text = encodeURIComponent('Boss moves only @girlbossonsol\nGreen on top white on bottom GirlBoss forever');
         const twitterUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
         window.open(twitterUrl, '_blank', 'width=600,height=400');
     }
