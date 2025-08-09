@@ -69,7 +69,11 @@ class GirlBossApp {
             copyCABtn.addEventListener('click', this.copyCAAddress.bind(this));
         }
 
-        // Buy button now redirects to Pump.fun - no special handling needed
+        // Buy button (disabled for now)
+        const buyBtn = document.getElementById('buyBtn');
+        if (buyBtn) {
+            buyBtn.addEventListener('click', this.handleBuyClick.bind(this));
+        }
 
         // Smooth scrolling for navigation
         document.querySelectorAll('.nav-link').forEach(link => {
@@ -327,7 +331,20 @@ class GirlBossApp {
         }, 1000);
     }
 
-    // handleBuyClick method removed - BUY button now directly links to Pump.fun
+    handleBuyClick() {
+        // Show coming soon message
+        const btn = document.getElementById('buyBtn');
+        const originalText = btn.textContent;
+        
+        btn.textContent = 'COMING SOON...';
+        
+        // Create notification
+        this.showNotification('BUY functionality coming soon! Stay tuned! 🚀');
+        
+        setTimeout(() => {
+            btn.textContent = originalText;
+        }, 2000);
+    }
 
     showNotification(message) {
         const notification = document.createElement('div');
@@ -561,7 +578,7 @@ document.addEventListener('click', (e) => {
     if (e.target.closest('.social-btn.twitter-share')) {
         e.preventDefault();
         const url = encodeURIComponent(window.location.href);
-        const text = encodeURIComponent('Boss moves only @girlbossonsol\nGreen on top white on bottom GirlBoss forever');
+        const text = encodeURIComponent('Boss moves only\nGreen on top white on bottom GirlBoss forever');
         const twitterUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
         window.open(twitterUrl, '_blank', 'width=600,height=400');
     }
