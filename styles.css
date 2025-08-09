@@ -243,6 +243,91 @@ body {
     text-align: left;
 }
 
+/* CA Address Display */
+.ca-display {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid var(--neon-green);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+    transition: var(--transition-smooth);
+}
+
+.ca-display:hover {
+    box-shadow: 0 0 30px rgba(57, 255, 20, 0.5);
+    border-color: var(--neon-blue);
+}
+
+.ca-label {
+    font-family: var(--font-pixel);
+    font-size: 0.7rem;
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green);
+    letter-spacing: 1px;
+}
+
+.ca-address-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ca-address {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: var(--text-light);
+    word-break: break-all;
+    flex: 1;
+}
+
+.ca-copy-btn {
+    background: var(--neon-green);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.ca-copy-btn:hover {
+    background: var(--neon-blue);
+    transform: scale(1.1);
+}
+
+.ca-copy-btn:active {
+    transform: scale(0.95);
+}
+
+.copy-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--dark-bg);
+}
+
+.ca-copied {
+    animation: copySuccess 0.6s ease;
+}
+
+@keyframes copySuccess {
+    0% { background: var(--neon-green); }
+    50% { background: var(--primary-color); transform: scale(1.2); }
+    100% { background: var(--neon-green); }
+}
+
 .main-title {
     font-family: var(--font-pixel);
     font-size: clamp(2rem, 5vw, 4rem);
@@ -332,6 +417,35 @@ body {
 .btn-twitter:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 30px rgba(29, 161, 242, 0.8);
+}
+
+.btn-buy {
+    background: linear-gradient(45deg, var(--neon-green), var(--neon-blue));
+    color: white;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+}
+
+.btn-buy:hover:not(.disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 30px rgba(57, 255, 20, 0.8);
+}
+
+.btn-buy.disabled {
+    background: linear-gradient(45deg, rgba(128, 128, 128, 0.5), rgba(128, 128, 128, 0.3));
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.6;
+}
+
+.btn-buy.disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.buy-icon {
+    width: 20px;
+    height: 20px;
 }
 
 .twitter-icon,
@@ -590,6 +704,28 @@ body {
     }
     100% {
         transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
         opacity: 0;
     }
 }

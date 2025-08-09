@@ -63,6 +63,18 @@ class GirlBossApp {
             powerBtn.addEventListener('click', this.activatePower.bind(this));
         }
 
+        // CA Address copy functionality
+        const copyCABtn = document.getElementById('copyCA');
+        if (copyCABtn) {
+            copyCABtn.addEventListener('click', this.copyCAAddress.bind(this));
+        }
+
+        // Buy button (disabled for now)
+        const buyBtn = document.getElementById('buyBtn');
+        if (buyBtn) {
+            buyBtn.addEventListener('click', this.handleBuyClick.bind(this));
+        }
+
         // Smooth scrolling for navigation
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', this.smoothScroll.bind(this));
@@ -263,6 +275,103 @@ class GirlBossApp {
         setTimeout(() => {
             title.style.animation = 'glitch 3s infinite';
         }, 500);
+    }
+
+    copyCAAddress() {
+        const caAddress = document.getElementById('caAddress').textContent;
+        const copyBtn = document.getElementById('copyCA');
+        
+        // Try to copy to clipboard
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(caAddress).then(() => {
+                this.showCopySuccess(copyBtn);
+            }).catch(() => {
+                this.fallbackCopyTextToClipboard(caAddress, copyBtn);
+            });
+        } else {
+            this.fallbackCopyTextToClipboard(caAddress, copyBtn);
+        }
+    }
+
+    fallbackCopyTextToClipboard(text, btn) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.top = '0';
+        textArea.style.left = '0';
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+            document.execCommand('copy');
+            this.showCopySuccess(btn);
+        } catch (err) {
+            console.error('Fallback: Oops, unable to copy', err);
+        }
+        
+        document.body.removeChild(textArea);
+    }
+
+    showCopySuccess(btn) {
+        btn.classList.add('ca-copied');
+        const originalHTML = btn.innerHTML;
+        
+        btn.innerHTML = `
+            <svg class="copy-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+        `;
+        
+        setTimeout(() => {
+            btn.classList.remove('ca-copied');
+            btn.innerHTML = originalHTML;
+        }, 1000);
+    }
+
+    handleBuyClick() {
+        // Show coming soon message
+        const btn = document.getElementById('buyBtn');
+        const originalText = btn.textContent;
+        
+        btn.textContent = 'COMING SOON...';
+        
+        // Create notification
+        this.showNotification('BUY functionality coming soon! Stay tuned! 🚀');
+        
+        setTimeout(() => {
+            btn.textContent = originalText;
+        }, 2000);
+    }
+
+    showNotification(message) {
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            font-family: var(--font-tech);
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.5);
+            z-index: 10000;
+            animation: slideInRight 0.5s ease-out;
+        `;
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOutRight 0.5s ease-in forwards';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 500);
+        }, 3000);
     }
 
     initMatrix() {
