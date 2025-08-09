@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GirlBoss - Pixel Perfect Power</title>
+    <meta name="description" content="Embrace your inner GirlBoss with pixel-perfect style and unstoppable energy">
+    
+    <!-- Preload critical resources for faster loading -->
+    <link rel="preload" href="girlboss.png" as="image">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GirlBoss - Pixel Perfect Power">
+    <meta name="twitter:description" content="Embrace your inner GirlBoss with pixel-perfect style and unstoppable energy">
+    <meta name="twitter:image" content="./girlboss.png">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="girlboss.png" type="image/png">
+</head>
+<body>
+    <!-- Background Matrix Effect -->
+    <canvas id="matrix-bg" class="matrix-background"></canvas>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <nav class="nav">
+                <div class="logo">
+                    <span class="pixel-text">GIRLBOSS</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#about" class="nav-link">ABOUT</a>
+                    <a href="#power" class="nav-link">POWER</a>
+                    <a href="#connect" class="nav-link">CONNECT</a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-image">
+                    <img src="girlboss.png" alt="GirlBoss Pixel Art" class="girlboss-image" loading="eager">
+                    <div class="image-glow"></div>
+                </div>
+                <div class="hero-text">
+                    <h1 class="main-title">
+                        <span class="title-line">PIXEL</span>
+                        <span class="title-line highlight">GIRLBOSS</span>
+                        <span class="title-line">POWER</span>
+                    </h1>
+                    <p class="subtitle">Level up your game. Break the code. Rule the digital world.</p>
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary" id="powerBtn">ACTIVATE POWER</button>
+                        <a href="https://twitter.com/intent/tweet?text=Just%20discovered%20the%20ultimate%20GirlBoss%20energy%20%F0%9F%92%AA%F0%9F%8E%AE&url=" 
+                           class="btn btn-twitter" target="_blank" rel="noopener">
+                            <svg class="twitter-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                            SHARE ON X
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about">
+            <div class="section-content">
+                <h2 class="section-title">DECODE THE BOSS</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="card-icon">💪</div>
+                        <h3>UNSTOPPABLE</h3>
+                        <p>Break through barriers with pixel-perfect precision and unwavering determination.</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">🎮</div>
+                        <h3>DIGITAL NATIVE</h3>
+                        <p>Navigate the digital landscape like a pro, mastering every platform and protocol.</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">⚡</div>
+                        <h3>HIGH VOLTAGE</h3>
+                        <p>Electrify your presence with high-energy performance and lightning-fast execution.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Power Section -->
+        <section id="power" class="section power">
+            <div class="section-content">
+                <h2 class="section-title">POWER LEVELS</h2>
+                <div class="power-bars">
+                    <div class="power-bar">
+                        <span class="power-label">LEADERSHIP</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" data-level="95"></div>
+                        </div>
+                        <span class="power-value">95%</span>
+                    </div>
+                    <div class="power-bar">
+                        <span class="power-label">INNOVATION</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" data-level="88"></div>
+                        </div>
+                        <span class="power-value">88%</span>
+                    </div>
+                    <div class="power-bar">
+                        <span class="power-label">RESILIENCE</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" data-level="100"></div>
+                        </div>
+                        <span class="power-value">100%</span>
+                    </div>
+                    <div class="power-bar">
+                        <span class="power-label">VISION</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" data-level="92"></div>
+                        </div>
+                        <span class="power-value">92%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connect Section -->
+        <section id="connect" class="section connect">
+            <div class="section-content">
+                <h2 class="section-title">JOIN THE NETWORK</h2>
+                <p class="connect-text">Connect with fellow GirlBosses and amplify your digital presence</p>
+                <div class="social-links">
+                    <a href="https://twitter.com/intent/tweet?text=Joining%20the%20GirlBoss%20revolution%20%F0%9F%92%AA%F0%9F%8E%AE&url=" 
+                       class="social-btn twitter" target="_blank" rel="noopener">
+                        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                        <span>TWEET YOUR POWER</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Particle System -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">GIRLBOSS</div>
+            <div class="loading-bar">
+                <div class="loading-progress" id="loadingProgress"></div>
+            </div>
+            <div class="loading-text">INITIALIZING POWER...</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
